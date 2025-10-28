@@ -86,7 +86,8 @@ android {
                 )
             }
             maybeCreate("release").apply {
-                //isMinifyEnabled = true
+                isDebuggable = true  // 添加这一行！！！
+                isMinifyEnabled = true
                 signingConfig = signingConfigs.getByName("release")
                 manifestPlaceholders.putAll(
                     mapOf(
