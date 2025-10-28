@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".AppOpenSource"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="${appIcon}"
+        android:label="${appLabel}"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="${appRoundIcon}"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tally.App"
+        tools:targetApi="31">
+
+        <activity
+            android:name="com.xiaojinzi.tally.module.user.module.loading.view.LoadingAct"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Tally.App.Loading"
+            android:windowSoftInputMode="adjustNothing">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="app_launch_20240723" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="app_boot_${applicationIdFormat}" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.xiaojinzi.tally.app1"
+            android:theme="@style/Theme.Tally.App.Transparent" />
+
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.xiaojinzi.tally.app1"
+            android:theme="@style/Theme.Tally.App.Transparent" />
+
+        <activity
+            android:name="com.xiaojinzi.support.init.RebootAct"
+            android:exported="true"
+            android:process=":app_reboot_${applicationIdFormat}">
+            <intent-filter>
+                <action android:name="app_reboot_${applicationIdFormat}" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

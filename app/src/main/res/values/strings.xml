@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">一刻记账</string>
+    <string name="app_name_for_debug">open记账</string>
+</resources>
